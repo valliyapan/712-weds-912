@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C2185B"/>
+      <stop offset="100%" stop-color="#7d1a4a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="120" cy="120" r="90" fill="#F9A825" opacity="0.15"/>
+  <circle cx="1080" cy="520" r="120" fill="#D4AF37" opacity="0.15"/>
+  <text x="600" y="300" font-family="Georgia, serif" font-size="88" fill="#FFF8F0" text-anchor="middle" font-style="italic">Valliyapan &amp; Shamyuktha</text>
+  <text x="600" y="380" font-family="Georgia, serif" font-size="40" fill="#F9A825" text-anchor="middle">30 October 2026</text>
+  <text x="600" y="440" font-family="Georgia, serif" font-size="32" fill="#FFE3EC" text-anchor="middle">#ValliWedsShammu</text>
+</svg>
