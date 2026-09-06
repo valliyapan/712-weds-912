@@ -1,5 +1,3 @@
-const myIframe = document.querySelector('iframe');
-myIframe.src = 'about:blank';
 // ===== Nav toggle =====
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
