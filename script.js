@@ -109,25 +109,13 @@ if (!reduceMotion) {
   animatePetals();
 }
 
-// ===== Gallery lightbox =====
-const lightbox = document.getElementById('lightbox');
-const lightboxContent = document.getElementById('lightboxContent');
-const lightboxClose = document.getElementById('lightboxClose');
-
-document.querySelectorAll('.gallery-item').forEach(item => {
-  item.addEventListener('click', () => {
-    lightboxContent.innerHTML = item.querySelector('svg').outerHTML;
-    lightboxContent.style.background = getComputedStyle(item).background;
-    lightbox.hidden = false;
-  });
-});
-lightboxClose.addEventListener('click', () => { lightbox.hidden = true; });
-lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.hidden = true; });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.hidden = true; });
-
 // ===== RSVP form submit (AJAX + confetti) =====
 const rsvpForm = document.getElementById('rsvpForm');
 const rsvpSuccess = document.getElementById('rsvpSuccess');
+rsvpSuccess.style.display = 'none';
+rsvpForm.style.display = 'block';
+
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwk9s-Nomz3ouwhmsYySrd6BPJUdimrYPnwHSZoqx-AbSJQuDqFOmwIGZTI2s_Hrlq3/exec';
 
 rsvpForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -135,13 +123,14 @@ rsvpForm.addEventListener('submit', async (e) => {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending…';
   try {
-    await fetch('/', {
+    await fetch(SHEETS_URL, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(new FormData(rsvpForm)).toString()
     });
-    rsvpForm.hidden = true;
-    rsvpSuccess.hidden = false;
+    rsvpForm.style.display = 'none';
+    rsvpSuccess.style.display = 'flex';
     if (!reduceMotion) burstConfetti();
   } catch (err) {
     submitBtn.disabled = false;
